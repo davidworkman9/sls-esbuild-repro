@@ -1,0 +1,37 @@
+service: sls-esbuild-repro
+
+# package:
+#   individually: true
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: development
+
+functions:
+  func_node:
+    runtime: nodejs14.x
+    handler: func_node.handler
+    events:
+      - httpApi:
+          path: /func_node
+          method: any
+
+  func_py:
+    runtime: python3.9
+    handler: func_py.handler
+    events:
+      - httpApi:
+          path: /func_py
+          method: any
+
+custom:
+  serverless-offline:
+    httpPort: 5500
+    websocketPort: 5501
+    lambdaPort: 5502
+    useChildProcesses: true
