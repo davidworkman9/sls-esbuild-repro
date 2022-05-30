@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "sls offline start"
+    "start": "sls offline start",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "esbuild": "^0.14.24",
     "serverless": "^3.7.1",
-    "serverless-esbuild": "^1.25.0",
+    "serverless-esbuild": "1.28.0",
     "serverless-offline": "^8.5.0"
+  },
+  "devDependencies": {
+    "patch-package": "^6.4.7"
   }
 }

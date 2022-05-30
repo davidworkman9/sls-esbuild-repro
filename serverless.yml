@@ -30,6 +30,9 @@ functions:
           method: any
 
 custom:
+  esbuild:
+    outputBuildFolder: mybuild
+    outputWorkFolder: myesbuild
   serverless-offline:
     httpPort: 5500
     websocketPort: 5501
